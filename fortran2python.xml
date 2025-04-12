@@ -1,0 +1,81 @@
+<CompuCell3D Revision="2" Version="4.5.0">
+   
+   <Metadata>
+      
+      
+      <NumberOfProcessors>1</NumberOfProcessors>
+      <DebugOutputFrequency>10</DebugOutputFrequency>
+      
+   </Metadata>
+   
+   <Potts>
+      
+      
+      
+      <Dimensions x="740" y="640" z="1" />
+      <Steps>100000</Steps>    
+      
+      <Temperature>2.0</Temperature>
+      <NeighborOrder>4</NeighborOrder>
+      
+      <RandomSeed>100</RandomSeed>
+   </Potts>
+   
+   <Plugin Name="CellType">
+      
+      
+      <CellType TypeId="0" TypeName="Medium" />
+      <CellType TypeId="1" TypeName="CELL" />
+      <CellType TypeId="2" Freeze="" TypeName="WALL" />
+      <CellType TypeId="3" TypeName="WOUNDED" />
+   </Plugin>
+      
+   <Plugin Name="Volume">
+      
+   </Plugin>
+   
+   <Plugin Name="Surface">
+      
+   </Plugin>
+   
+   <Plugin Name="CenterOfMass">
+    
+      
+   </Plugin>
+   
+   <Plugin Name="NeighborTracker">
+      
+      
+   </Plugin>
+   
+   <Plugin Name="PixelTracker">
+      
+      
+   </Plugin>
+   
+   <Plugin Name="Contact">
+      
+      <Energy Type1="Medium" Type2="Medium">10.0</Energy> Not this
+      <Energy Type1="Medium" Type2="CELL">5.0</Energy>
+      <Energy Type1="Medium" Type2="WALL">1.0</Energy> Not this
+      <Energy Type1="Medium" Type2="WOUNDED">5.0</Energy>
+      <Energy Type1="CELL" Type2="CELL">5.0</Energy>
+      <Energy Type1="CELL" Type2="WALL">20.0</Energy> Not this
+      <Energy Type1="CELL" Type2="WOUNDED">4.0</Energy>
+      <Energy Type1="WALL" Type2="WALL">1.0</Energy> Not this
+      <Energy Type1="WALL" Type2="WOUNDED">20.0</Energy> Not this
+      <Energy Type1="WOUNDED" Type2="WOUNDED">2.0</Energy>
+      
+      <NeighborOrder>4</NeighborOrder>
+   </Plugin>
+   
+   
+      
+      
+      
+   
+   <Steppable Type="PIFInitializer">  
+        
+        <PIFName>output.piff</PIFName>
+    </Steppable>
+</CompuCell3D>

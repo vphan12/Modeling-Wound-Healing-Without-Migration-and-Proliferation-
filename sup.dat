@@ -1,0 +1,32 @@
+100
+740 640
+25 50 
+4. .2 2 
+0.0625 0.0625 0.05
+0.125 0.125 0.1
+100 10
+
+
+
+	  Open(7,file='sup.dat',status='unknown')
+	 read(7,*)iseed
+	 read(7,*)xsize,ysize
+         read(7,*)nradio1,nradio2	
+         read(7,*)Jij, Kappa, temperature
+	 read(7,*)porc_rad1,porc_tang1, porc_die1
+	 read(7,*)porc_rad2,porc_tang2, porc_die2
+         read(7,*)sout,sout2
+	 
+ 
+         close(7)
+      
+         !Se genera fusion de celulas entre un radio nradio2 y nradio1. Las celulas en nradio1 pertenecen a la
+	 ! wound. Hay procesos intercalados de fusion tangencial y radial respecto de la herida. La radial es a una distancia fija, radio fijo y la tangencial es SOBRE un radio
+         !Cada el tiempo sout2 hay una fusion
+         !El proceso es en dos etapas nfinal1 (con las razones de porcentajes de fusion porc_rad1, etc) y luego en nfinal2 (se termina con los porcentajes porc_rad2, etc).
+         !Si hay 100 celulas entre los nradio1 y nradio2, y porc_rad1 = 0.1 quiere decir que habra 10 sucesos de fusiones radial en nfinal1. Si porc_rad2=0.15 quiere decir que habra un total de 15 fusiones radiales y la ultimas 5 sucederan en nfinal2  
+	 ! Los tiempos nfinal1 y nfinal2 se calculan en el programa. Con estos tiempos se calculan los momentos de muerte de celulas entre nradio1 y nradio2  
+	 
+	 y nstep (que es el tiempo final para que el sistema relaje un poco tambien se calcula en el cuerpo del programa 
+	!sout es cuando se graban datos, sout2 cuando hay un proceso de fusion tangencial o radial seguido de una muerte por shrink 
+	
