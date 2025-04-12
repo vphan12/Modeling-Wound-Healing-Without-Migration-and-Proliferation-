@@ -1,0 +1,6 @@
+<Simulation version="4.5.0">   
+   <PythonScript Type="PythonScript">Simulation/fortran2python.py</PythonScript>
+   <Resource Type="Python">Simulation/fortran2pythonSteppables.py</Resource>
+   <PythonScript Type="PythonScript">Simulation/piffGenerator.py</PythonScript>   
+   <XMLScript Type="XMLScript">Simulation/fortran2python.xml</XMLScript>
+</Simulation>
